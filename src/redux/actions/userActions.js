@@ -20,7 +20,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      'http://localhost:8000/api/users/login/',
+      `${import.meta.env.VITE_API_URL}/api/users/login/`,
       {
         username: email,
         password,
@@ -54,7 +54,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      'http://localhost:8000/api/users/register/',
+      `${import.meta.env.VITE_API_URL}/api/users/register/`,
       {
         name,
         email,

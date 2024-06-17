@@ -2,7 +2,7 @@ import axios from 'axios';
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants';
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`http://localhost:8000/api/products/${productId}`);
+  const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${productId}`);
   
   if (qty > data.stock) {
     alert(`Solo puedes añadir hasta ${data.stock} unidades de este producto.`);
