@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const apiCreateOrderPaypal = async (amount) => {
-    const response = await fetch("http://127.0.0.1:8000/api/orders", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const apiCreateOrderPaypal = async (amount) => {
 };
 
 export const apiOnApprovePaypal = async (orderID) => {
-    const response = await fetch("http://127.0.0.1:8000/api/orders/capture", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/capture`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const apiUpdateStock = async (cartItems) => {
     }));
 
     try {
-        const response = await axios.put('http://127.0.0.1:8000/api/products/update_stock/', stockUpdates);
+        const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/products/update_stock/`, stockUpdates);
         return response.data; // O cualquier manipulación de la respuesta que necesites
     } catch (error) {
         console.error('Error updating stock:', error);
